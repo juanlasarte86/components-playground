@@ -31,13 +31,10 @@ export default function LandingPage() {
       </header>
 
       {/* Hero */}
-      <section className="max-w-5xl mx-auto px-6 py-20 text-center">
-        <div className="inline-flex items-center gap-2 bg-violet-50 dark:bg-violet-950 text-violet-700 dark:text-violet-300 text-xs font-medium px-3 py-1.5 rounded-full border border-violet-200 dark:border-violet-800 mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse"></span>
-          Interactive component explorer
-        </div>
+      <section className="border-b border-neutral-100 dark:border-neutral-900 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAyMCAwIEwgMCAwIDAgMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLDAsMCwwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')]">
+        <div className="max-w-5xl mx-auto px-6 py-36 text-center">
         <h1 className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 mb-4">
-          Build with confidence
+          Interactive component explorer
         </h1>
         <p className="text-lg text-neutral-500 dark:text-neutral-400 max-w-xl mx-auto mb-10 leading-relaxed">
           Explore, tweak, and copy UI components. Each one comes with live controls and ready-to-use code.
@@ -56,21 +53,6 @@ export default function LandingPage() {
             View on GitHub
           </a>
         </div>
-      </section>
-
-      {/* Stats bar */}
-      <section className="border-y border-neutral-100 dark:border-neutral-900 bg-neutral-50 dark:bg-neutral-900/50">
-        <div className="max-w-5xl mx-auto px-6 py-6 grid grid-cols-3 gap-4 text-center">
-          {[
-            { value: '6', label: 'Components' },
-            { value: '100%', label: 'Accessible' },
-            { value: 'Live', label: 'Prop controls' },
-          ].map(({ value, label }) => (
-            <div key={label}>
-              <div className="text-2xl font-bold text-neutral-900 dark:text-neutral-50">{value}</div>
-              <div className="text-xs text-neutral-500 mt-0.5">{label}</div>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -103,29 +85,26 @@ function ComponentCard({ name, description, status }) {
   const slug = name.toLowerCase()
 
   const inner = (
-    <div className={`group rounded-xl border p-5 transition-all h-full ${
+    <div className={`group rounded-xl border p-6 transition-all h-full flex flex-col gap-3 ${
       isReady
-        ? 'border-neutral-200 dark:border-neutral-800 hover:border-violet-300 dark:hover:border-violet-700 hover:shadow-sm cursor-pointer'
-        : 'border-neutral-100 dark:border-neutral-900 opacity-60'
+        ? 'border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600 hover:shadow-sm cursor-pointer'
+        : 'border-neutral-200 dark:border-neutral-800'
     }`}>
-      <div className="flex items-start justify-between mb-3">
-        <div className="w-9 h-9 rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-500 dark:text-neutral-400 group-hover:bg-violet-100 dark:group-hover:bg-violet-900/40 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
-          <ComponentIcon name={name} />
-        </div>
+      <div className="flex items-center justify-between pb-3 border-b border-neutral-200 dark:border-neutral-700">
+        <h3 className="text-base font-semibold text-neutral-900 dark:text-neutral-100">{name}</h3>
         {isReady ? (
-          <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 border border-emerald-200 dark:border-emerald-800 px-2 py-0.5 rounded-full">
+          <span className="text-xs font-medium text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900 px-2 py-0.5 rounded-full">
             Ready
           </span>
         ) : (
-          <span className="text-xs font-medium text-neutral-400 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 px-2 py-0.5 rounded-full">
+          <span className="text-xs font-medium text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 rounded-full">
             Soon
           </span>
         )}
       </div>
-      <h3 className="font-semibold text-sm text-neutral-900 dark:text-neutral-100 mb-1">{name}</h3>
-      <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">{description}</p>
+      <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">{description}</p>
       {isReady && (
-        <div className="mt-4 flex items-center gap-1.5 text-xs text-violet-600 dark:text-violet-400 font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="mt-auto pt-1 flex items-center gap-1 text-xs font-medium text-neutral-400 dark:text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity">
           Explore
           <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -138,42 +117,4 @@ function ComponentCard({ name, description, status }) {
   return isReady
     ? <Link to={`/components/${slug}`} className="block">{inner}</Link>
     : inner
-}
-
-function ComponentIcon({ name }) {
-  const icons = {
-    Button: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <rect x="3" y="8" width="18" height="8" rx="2" strokeWidth={2} />
-      </svg>
-    ),
-    Input: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12h18M3 6h6M3 18h6" />
-      </svg>
-    ),
-    Badge: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M12 7h.01M17 7h.01M7 12h.01M12 12h.01M17 12h.01" />
-      </svg>
-    ),
-    Card: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <rect x="3" y="4" width="18" height="16" rx="2" strokeWidth={2} />
-        <path strokeLinecap="round" strokeWidth={2} d="M3 9h18" />
-      </svg>
-    ),
-    Modal: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <rect x="5" y="5" width="14" height="14" rx="2" strokeWidth={2} />
-        <path strokeLinecap="round" strokeWidth={2} d="M5 10h14" />
-      </svg>
-    ),
-    Tooltip: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-      </svg>
-    ),
-  }
-  return icons[name] ?? null
 }
