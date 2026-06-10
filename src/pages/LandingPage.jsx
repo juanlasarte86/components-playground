@@ -117,6 +117,6 @@ function ComponentCard({ name, description, status }) {
   )
 
   return isReady
-    ? <Link to={`/components/${slug}`} className="block">{inner}</Link>
+    ? <Link to={`/${slug}`} className="block">{inner}</Link>
     : inner
 }
