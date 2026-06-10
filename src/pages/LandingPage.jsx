@@ -25,7 +25,7 @@ export default function LandingPage() {
           </div>
           <nav className="flex items-center gap-6 text-sm text-neutral-500 dark:text-neutral-400">
             <a href="#components" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">Components</a>
-            <a href="#" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">GitHub</a>
+            <a href="https://github.com/juanlasarte86/components-playground" target="_blank" rel="noreferrer" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">GitHub</a>
           </nav>
         </div>
       </header>
@@ -47,7 +47,9 @@ export default function LandingPage() {
             Browse components
           </a>
           <a
-            href="#"
+            href="https://github.com/juanlasarte86/components-playground"
+            target="_blank"
+            rel="noreferrer"
             className="border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 text-sm font-medium px-5 py-2.5 rounded-lg transition-colors text-neutral-700 dark:text-neutral-300"
           >
             View on GitHub
