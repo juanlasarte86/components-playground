@@ -52,15 +52,15 @@ export default function InputPage() {
           {/* Prop rows */}
           <div className="bg-white dark:bg-neutral-950 divide-y divide-neutral-100 dark:divide-neutral-800/80">
 
-            <PropRow label="label" type="string">
+            <PropRow label="label" type="Text above the input">
               <TextInput value={props.label} onChange={(v) => set('label', v)} />
             </PropRow>
 
-            <PropRow label="placeholder" type="string">
+            <PropRow label="placeholder" type="Hint text inside the input">
               <TextInput value={props.placeholder} onChange={(v) => set('placeholder', v)} />
             </PropRow>
 
-            <PropRow label="type" type='"text" | "email" | "password"'>
+            <PropRow label="type" type="Input mode">
               <SegmentedControl
                 options={['text', 'email', 'password']}
                 value={props.type}
@@ -68,7 +68,7 @@ export default function InputPage() {
               />
             </PropRow>
 
-            <PropRow label="error" type="string">
+            <PropRow label="error" type="Validation message">
               <TextInput
                 value={props.error}
                 placeholder="e.g. This field is required"
@@ -76,7 +76,7 @@ export default function InputPage() {
               />
             </PropRow>
 
-            <PropRow label="disabled" type="boolean">
+            <PropRow label="disabled" type="Prevents interaction">
               <Toggle value={props.disabled} onChange={(v) => set('disabled', v)} />
             </PropRow>
 
@@ -138,11 +138,11 @@ function Toggle({ value, onChange }) {
         role="switch"
         aria-checked={value}
         onClick={() => onChange(!value)}
-        className={`w-10 h-6 rounded-full border-2 transition-colors relative ${
+        className={`w-10 h-6 rounded-full border-2 transition-colors relative focus:outline-none overflow-hidden ${
           value ? 'bg-neutral-900 border-neutral-900' : 'bg-neutral-200 dark:bg-neutral-700 border-transparent'
         }`}
       >
-        <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${value ? 'translate-x-4' : 'translate-x-0.5'}`} />
+        <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${value ? 'translate-x-[18px]' : 'translate-x-0.5'}`} />
       </button>
     </div>
   )

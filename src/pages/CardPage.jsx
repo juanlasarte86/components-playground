@@ -58,15 +58,15 @@ export default function CardPage() {
           {/* Prop rows */}
           <div className="bg-white dark:bg-neutral-950 divide-y divide-neutral-100 dark:divide-neutral-800/80">
 
-            <PropRow label="title" type="string">
+            <PropRow label="title" type="Card heading">
               <TextInput value={props.title} onChange={(v) => set('title', v)} />
             </PropRow>
 
-            <PropRow label="description" type="string">
+            <PropRow label="description" type="Body text">
               <TextInput value={props.description} onChange={(v) => set('description', v)} />
             </PropRow>
 
-            <PropRow label="image" type="string | undefined">
+            <PropRow label="image" type="Optional cover image">
               <SegmentedControl
                 options={['show', 'hide']}
                 value={props.image ? 'show' : 'hide'}
@@ -74,12 +74,12 @@ export default function CardPage() {
               />
             </PropRow>
 
-            <PropRow label="onClick" type="function | undefined">
+            <PropRow label="onClick" type="Makes the card clickable">
               <Toggle
                 value={props.clickable}
                 onChange={(v) => set('clickable', v)}
-                trueLabel="set"
-                falseLabel="unset"
+                trueLabel="on"
+                falseLabel="off"
               />
             </PropRow>
 
@@ -142,11 +142,11 @@ function Toggle({ value, onChange, trueLabel = 'true', falseLabel = 'false' }) {
         role="switch"
         aria-checked={value}
         onClick={() => onChange(!value)}
-        className={`w-10 h-6 rounded-full border-2 transition-colors relative ${
+        className={`w-10 h-6 rounded-full border-2 transition-colors relative focus:outline-none overflow-hidden ${
           value ? 'bg-neutral-900 border-neutral-900' : 'bg-neutral-200 dark:bg-neutral-700 border-transparent'
         }`}
       >
-        <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${value ? 'translate-x-4' : 'translate-x-0.5'}`} />
+        <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${value ? 'translate-x-[18px]' : 'translate-x-0.5'}`} />
       </button>
     </div>
   )

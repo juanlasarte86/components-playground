@@ -37,7 +37,7 @@ export default function BadgePage() {
 
           <div className="bg-white dark:bg-neutral-950 divide-y divide-neutral-100 dark:divide-neutral-800/80">
 
-            <PropRow label="text" type="string">
+            <PropRow label="text" type="Badge label">
               <input
                 type="text"
                 value={props.text}
@@ -46,7 +46,7 @@ export default function BadgePage() {
               />
             </PropRow>
 
-            <PropRow label="color" type='"gray" | "red" | "green" | "blue" | "yellow"'>
+            <PropRow label="color" type="Color theme">
               <SegmentedControl
                 options={['gray', 'red', 'green', 'blue', 'yellow']}
                 value={props.color}
@@ -54,7 +54,7 @@ export default function BadgePage() {
               />
             </PropRow>
 
-            <PropRow label="size" type='"small" | "medium"'>
+            <PropRow label="size" type="Badge size">
               <SegmentedControl
                 options={['small', 'medium']}
                 value={props.size}

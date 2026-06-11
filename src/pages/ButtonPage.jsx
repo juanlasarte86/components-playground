@@ -50,7 +50,7 @@ export default function ButtonPage() {
 
           {/* Prop rows */}
           <div className="bg-white dark:bg-neutral-950 divide-y divide-neutral-100 dark:divide-neutral-800/80">
-            <PropRow label="label" type="string">
+            <PropRow label="label" type="Button text">
               <input
                 type="text"
                 value={props.label}
@@ -59,7 +59,7 @@ export default function ButtonPage() {
               />
             </PropRow>
 
-            <PropRow label="variant" type='"primary" | "secondary" | "ghost"'>
+            <PropRow label="variant" type="Visual style">
               <SegmentedControl
                 options={['primary', 'secondary', 'ghost']}
                 value={props.variant}
@@ -67,7 +67,7 @@ export default function ButtonPage() {
               />
             </PropRow>
 
-            <PropRow label="size" type='"small" | "medium" | "large"'>
+            <PropRow label="size" type="Button size">
               <SegmentedControl
                 options={['small', 'medium', 'large']}
                 value={props.size}
@@ -75,7 +75,7 @@ export default function ButtonPage() {
               />
             </PropRow>
 
-            <PropRow label="disabled" type="boolean">
+            <PropRow label="disabled" type="Prevents interaction">
               <Toggle value={props.disabled} onChange={(v) => set('disabled', v)} />
             </PropRow>
           </div>
@@ -124,11 +124,11 @@ function Toggle({ value, onChange }) {
         role="switch"
         aria-checked={value}
         onClick={() => onChange(!value)}
-        className={`w-10 h-6 rounded-full border-2 transition-colors relative ${
-          value ? 'bg-violet-600 border-violet-600' : 'bg-neutral-200 dark:bg-neutral-700 border-transparent'
+        className={`w-10 h-6 rounded-full border-2 transition-colors relative focus:outline-none overflow-hidden ${
+          value ? 'bg-neutral-900 border-neutral-900' : 'bg-neutral-200 dark:bg-neutral-700 border-transparent'
         }`}
       >
-        <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${value ? 'translate-x-4' : 'translate-x-0.5'}`} />
+        <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${value ? 'translate-x-[18px]' : 'translate-x-0.5'}`} />
       </button>
     </div>
   )
