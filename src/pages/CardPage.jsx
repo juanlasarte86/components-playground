@@ -146,7 +146,7 @@ function Toggle({ value, onChange, trueLabel = 'true', falseLabel = 'false' }) {
           value ? 'bg-neutral-900 border-neutral-900' : 'bg-neutral-200 dark:bg-neutral-700 border-transparent'
         }`}
       >
-        <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${value ? 'translate-x-[22px]' : 'translate-x-0.5'}`} />
+        <span className="absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-[left] duration-150" style={{ left: value ? '18px' : '2px' }} />
       </button>
     </div>
   )
