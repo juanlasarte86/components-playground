@@ -3,8 +3,8 @@ import Input from '../components/Input'
 import DocsLayout from '../components/DocsLayout'
 
 const defaultProps = {
-  label: 'Email address',
-  placeholder: 'you@example.com',
+  label: 'Full name',
+  placeholder: 'Jane Smith',
   type: 'text',
   error: '',
   disabled: false,
@@ -12,7 +12,7 @@ const defaultProps = {
 
 export default function InputPage() {
   const [props, setProps] = useState(defaultProps)
-  const [inputValue, setInputValue] = useState('hello@example.com')
+  const [inputValue, setInputValue] = useState('Jane Smith')
 
   function set(key, value) {
     setProps((prev) => ({ ...prev, [key]: value }))
