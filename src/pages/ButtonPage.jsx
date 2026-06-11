@@ -119,7 +119,7 @@ function SegmentedControl({ options, value, onChange }) {
 function Toggle({ value, onChange }) {
   return (
     <div className="flex items-center gap-2.5">
-      <span className="text-xs text-neutral-400 w-8 text-right tabular-nums">{value ? 'true' : 'false'}</span>
+      <span className="text-xs text-neutral-400 w-8 text-right tabular-nums">{value ? 'on' : 'off'}</span>
       <button
         role="switch"
         aria-checked={value}
