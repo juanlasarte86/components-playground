@@ -5,8 +5,8 @@ export default function LandingPage() {
     { name: 'Button', description: 'Clickable actions with variants and sizes', status: 'ready' },
     { name: 'Input', description: 'Text fields with labels, validation states', status: 'ready' },
     { name: 'Badge', description: 'Small status and label indicators', status: 'ready' },
-    { name: 'Card', description: 'Content container with optional header/footer', status: 'coming-soon' },
-    { name: 'Modal', description: 'Overlay dialogs and confirmations', status: 'coming-soon' },
+    { name: 'Card', description: 'Content container with optional header/footer', status: 'ready' },
+    { name: 'Modal', description: 'Overlay dialogs and confirmations', status: 'ready' },
     { name: 'Tooltip', description: 'Contextual hover labels', status: 'coming-soon' },
   ]
 

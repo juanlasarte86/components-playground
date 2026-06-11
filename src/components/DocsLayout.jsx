@@ -5,7 +5,7 @@ const NAV = [
   { label: 'Input',   path: '/input' },
   { label: 'Badge',   path: '/badge' },
   { label: 'Card',    path: '/card' },
-  { label: 'Modal',   path: null },
+  { label: 'Modal',   path: '/modal' },
   { label: 'Tooltip', path: null },
 ]
 

@@ -1,0 +1,178 @@
+import { useState } from 'react'
+import Modal from '../components/Modal'
+import DocsLayout from '../components/DocsLayout'
+
+const defaultProps = {
+  title: 'Are you sure?',
+  description: 'This action cannot be undone. Please confirm before continuing.',
+  size: 'medium',
+  showCloseButton: true,
+}
+
+function codeSnippet(props) {
+  return `<Modal
+  title="${props.title}"
+  description="${props.description}"
+  size="${props.size}"
+  showCloseButton={${props.showCloseButton}}
+  open={isOpen}
+  onClose={() => setIsOpen(false)}
+/>`
+}
+
+export default function ModalPage() {
+  const [props, setProps] = useState(defaultProps)
+  const [open, setOpen] = useState(false)
+  const [copied, setCopied] = useState(false)
+  const set = (key, value) => setProps((prev) => ({ ...prev, [key]: value }))
+
+  function copy() {
+    navigator.clipboard.writeText(codeSnippet(props))
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1500)
+  }
+
+  return (
+    <DocsLayout>
+      <div className="max-w-2xl mx-auto px-8 py-12 flex flex-col gap-8">
+
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight mb-2">Modal</h1>
+          <p className="text-neutral-500 dark:text-neutral-400 text-base leading-relaxed max-w-lg">
+            An overlay dialog for confirmations, alerts, or focused interactions.
+            Closes on backdrop click or Escape key.
+          </p>
+        </div>
+
+        <div className="rounded-2xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
+
+          {/* Preview */}
+          <div className="bg-neutral-50 dark:bg-neutral-900 min-h-44 flex items-center justify-center p-10 border-b border-neutral-200 dark:border-neutral-800">
+            <button
+              onClick={() => setOpen(true)}
+              className="bg-violet-600 hover:bg-violet-700 active:bg-violet-800 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors shadow-sm"
+            >
+              Open modal
+            </button>
+            <Modal {...props} open={open} onClose={() => setOpen(false)} />
+          </div>
+
+          {/* Props header */}
+          <div className="flex items-center justify-between px-5 py-3 border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-950">
+            <span className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">Props</span>
+            <button
+              onClick={() => setProps(defaultProps)}
+              className="text-xs text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"
+            >
+              Reset to defaults
+            </button>
+          </div>
+
+          {/* Prop rows */}
+          <div className="bg-white dark:bg-neutral-950 divide-y divide-neutral-100 dark:divide-neutral-800/80">
+
+            <PropRow label="title" type="Heading text">
+              <TextInput value={props.title} onChange={(v) => set('title', v)} />
+            </PropRow>
+
+            <PropRow label="description" type="Body text">
+              <TextInput value={props.description} onChange={(v) => set('description', v)} />
+            </PropRow>
+
+            <PropRow label="size" type="Dialog width">
+              <SegmentedControl
+                options={['small', 'medium', 'large']}
+                value={props.size}
+                onChange={(v) => set('size', v)}
+              />
+            </PropRow>
+
+            <PropRow label="showCloseButton" type="Show × button">
+              <Toggle value={props.showCloseButton} onChange={(v) => set('showCloseButton', v)} />
+            </PropRow>
+
+          </div>
+        </div>
+
+        {/* Code snippet */}
+        <div className="rounded-2xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
+          <div className="flex items-center justify-between px-5 py-3 border-b border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-950">
+            <span className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">Code</span>
+            <button
+              onClick={copy}
+              className="text-xs text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors"
+            >
+              {copied ? 'Copied!' : 'Copy'}
+            </button>
+          </div>
+          <pre className="bg-neutral-50 dark:bg-neutral-900 px-5 py-4 text-xs font-mono text-neutral-700 dark:text-neutral-300 overflow-x-auto leading-relaxed">
+            {codeSnippet(props)}
+          </pre>
+        </div>
+
+      </div>
+    </DocsLayout>
+  )
+}
+
+function PropRow({ label, type, children }) {
+  return (
+    <div className="grid items-center px-5 py-3.5 gap-4" style={{ gridTemplateColumns: '10rem 1fr auto' }}>
+      <p className="text-sm font-mono font-medium text-neutral-800 dark:text-neutral-200 truncate">{label}</p>
+      <p className="text-xs text-neutral-400 truncate">{type}</p>
+      <div>{children}</div>
+    </div>
+  )
+}
+
+function TextInput({ value, onChange }) {
+  return (
+    <input
+      type="text"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className="w-44 text-sm border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-violet-500"
+    />
+  )
+}
+
+function SegmentedControl({ options, value, onChange }) {
+  return (
+    <div className="flex rounded-lg border border-neutral-200 dark:border-neutral-700 overflow-hidden text-xs font-medium">
+      {options.map((opt) => (
+        <button
+          key={opt}
+          onClick={() => onChange(opt)}
+          className={`px-3 py-1.5 transition-colors ${
+            value === opt
+              ? 'bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900'
+              : 'bg-white dark:bg-neutral-900 text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800'
+          }`}
+        >
+          {opt}
+        </button>
+      ))}
+    </div>
+  )
+}
+
+function Toggle({ value, onChange }) {
+  return (
+    <div className="flex items-center gap-2.5">
+      <span className="text-xs text-neutral-400 w-8 text-right tabular-nums">{value ? 'on' : 'off'}</span>
+      <button
+        role="switch"
+        aria-checked={value}
+        onClick={() => onChange(!value)}
+        className={`w-10 h-6 rounded-full border-2 transition-colors relative focus:outline-none ${
+          value ? 'bg-neutral-900 border-neutral-900' : 'bg-neutral-200 dark:bg-neutral-700 border-transparent'
+        }`}
+      >
+        <span
+          className="absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-[left] duration-150"
+          style={{ left: value ? '18px' : '2px' }}
+        />
+      </button>
+    </div>
+  )
+}
