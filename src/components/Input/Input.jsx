@@ -4,6 +4,7 @@ export default function Input({
   type = 'text',
   error = '',
   disabled = false,
+  value,
   onChange,
 }) {
   const hasError = Boolean(error)
@@ -19,6 +20,7 @@ export default function Input({
         type={type}
         placeholder={placeholder}
         disabled={disabled}
+        value={value}
         onChange={onChange}
         className={[
           'w-full rounded-lg border px-3 py-2 text-sm bg-white dark:bg-neutral-900',

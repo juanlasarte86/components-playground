@@ -12,6 +12,7 @@ const defaultProps = {
 
 export default function InputPage() {
   const [props, setProps] = useState(defaultProps)
+  const [inputValue, setInputValue] = useState('hello@example.com')
 
   function set(key, value) {
     setProps((prev) => ({ ...prev, [key]: value }))
@@ -35,7 +36,7 @@ export default function InputPage() {
 
           {/* Preview */}
           <div className="bg-neutral-50 dark:bg-neutral-900 min-h-44 flex items-center justify-center p-10 border-b border-neutral-200 dark:border-neutral-800">
-            <Input {...props} />
+            <Input {...props} value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
           </div>
 
           {/* Props header */}
