@@ -14,8 +14,20 @@ export default function InputPage() {
   const [props, setProps] = useState(defaultProps)
   const [inputValue, setInputValue] = useState('Jane Smith')
 
+  const typePresets = {
+    text:     { label: 'Full name',      placeholder: 'Jane Smith',       value: 'Jane Smith' },
+    email:    { label: 'Email address',  placeholder: 'you@example.com',  value: 'hello@example.com' },
+    password: { label: 'Password',       placeholder: '••••••••',         value: 'mysecretpassword' },
+  }
+
   function set(key, value) {
-    setProps((prev) => ({ ...prev, [key]: value }))
+    if (key === 'type') {
+      const preset = typePresets[value]
+      setProps((prev) => ({ ...prev, type: value, label: preset.label, placeholder: preset.placeholder }))
+      setInputValue(preset.value)
+    } else {
+      setProps((prev) => ({ ...prev, [key]: value }))
+    }
   }
 
   return (
