@@ -138,11 +138,11 @@ function Toggle({ value, onChange }) {
         role="switch"
         aria-checked={value}
         onClick={() => onChange(!value)}
-        className={`w-10 h-6 rounded-full border-2 transition-colors relative focus:outline-none overflow-hidden ${
+        className={`w-10 h-6 rounded-full border-2 transition-colors relative focus:outline-none ${
           value ? 'bg-neutral-900 border-neutral-900' : 'bg-neutral-200 dark:bg-neutral-700 border-transparent'
         }`}
       >
-        <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${value ? 'translate-x-[18px]' : 'translate-x-0.5'}`} />
+        <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform ${value ? 'translate-x-[22px]' : 'translate-x-0.5'}`} />
       </button>
     </div>
   )
