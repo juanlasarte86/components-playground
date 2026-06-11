@@ -6,6 +6,7 @@ import InputPage from './pages/InputPage'
 import CardPage from './pages/CardPage'
 import BadgePage from './pages/BadgePage'
 import ModalPage from './pages/ModalPage'
+import TooltipPage from './pages/TooltipPage'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/card" element={<CardPage />} />
         <Route path="/badge" element={<BadgePage />} />
         <Route path="/modal" element={<ModalPage />} />
+        <Route path="/tooltip" element={<TooltipPage />} />
         <Route path="/components/:name" element={<ComponentPage />} />
       </Routes>
     </BrowserRouter>

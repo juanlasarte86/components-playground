@@ -6,7 +6,7 @@ const NAV = [
   { label: 'Badge',   path: '/badge' },
   { label: 'Card',    path: '/card' },
   { label: 'Modal',   path: '/modal' },
-  { label: 'Tooltip', path: null },
+  { label: 'Tooltip', path: '/tooltip' },
 ]
 
 export default function DocsLayout({ children }) {

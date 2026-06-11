@@ -7,7 +7,7 @@ export default function LandingPage() {
     { name: 'Badge', description: 'Small status and label indicators', status: 'ready' },
     { name: 'Card', description: 'Content container with optional header/footer', status: 'ready' },
     { name: 'Modal', description: 'Overlay dialogs and confirmations', status: 'ready' },
-    { name: 'Tooltip', description: 'Contextual hover labels', status: 'coming-soon' },
+    { name: 'Tooltip', description: 'Contextual hover labels', status: 'ready' },
   ]
 
   return (
