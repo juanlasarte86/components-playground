@@ -16,11 +16,14 @@ export default function LandingPage() {
       <header className="border-b border-neutral-200 dark:border-neutral-800">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-7 h-7 rounded-md bg-violet-600 flex items-center justify-center">
-              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h8m-8 6h16" />
-              </svg>
-            </div>
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-7 h-7">
+              <polygon points="3,7 14,1 25,7 19,11 14,8 9,11" fill="#d4d4d8"/>
+              <polygon points="3,21 9,17 14,20 19,17 25,21 14,27" fill="#a1a1aa"/>
+              <polygon points="3,7 9,11 9,17 3,21" fill="#4C1D95"/>
+              <polygon points="25,7 19,11 19,17 25,21" fill="#111827"/>
+              <polygon points="9,11 14,8 14,20 9,17" fill="#7C3AED"/>
+              <polygon points="19,11 14,8 14,20 19,17" fill="#374151"/>
+            </svg>
             <span className="font-semibold text-sm tracking-tight">Components Playground</span>
           </div>
           <nav className="flex items-center gap-6 text-sm text-neutral-500 dark:text-neutral-400">
